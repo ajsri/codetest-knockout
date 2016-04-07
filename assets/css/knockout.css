@@ -1,0 +1,19 @@
+.koapp{
+	font-family: Nunito;
+}
+
+.koapp-header{
+	background-color: #1C2E36;
+	color: #FFF;
+}
+
+.requests-header{
+	margin-bottom: 12px;
+	font-size: 18px;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.75);
+}
+.request-row{
+	padding-bottom: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
