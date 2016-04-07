@@ -1,105 +1,105 @@
 <!doctype html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">	
-	<title>Knockout Example</title>
-	<link rel="stylesheet" href="./assets/css/knockout.css" />
-	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+  <title>Knockout Example</title>
+  <link rel="stylesheet" href="./assets/css/knockout.css" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container-fluid koapp">
-		<div class="row koapp-header">
-			<div class="col-md-12">
-				knockout.js example
-			</div>
-		</div>
-		<div class="row koapp-explain">
-			<div class="col-md-12">
-				<h1>knockout.js example</h1>
-				<p>We're using <a href="http://v4-alpha.getbootstrap.com">Bootstrap 4's alpha</a>, <a href="http://www.knockoutjs.com">knockout.js</a> MVVM, <a href="https://jquery.com/">jQuery</a> and <a href="http://momentjs.com/">moment.js</a>.</p>
-				<p>I'm using data from a code test we usually give to juniors for react testing. It should work well here.</p>
-				<h3>Requirements</h3>
-				<ul>
-					<li>Filter should include the number of results that match that filter in parentheses after the name of the object (substitute # with count)</li>
-					<li>Selecting a checkbox next to a filter hides all results whose status does not match the filter selected. A user may select multiple statuses and all results that match any one of the filters will be shown</li>
-					<li>Having no filter checkboxes selected shows all results</li>
-				</ul>
-			</div>
-		</div>
-		<div class="row koapp-actual" id="app">
-			<div class="col-md-12">
-				<input type="checkbox" id="Pending" data-bind="click: modifyFilter, checked: Pending"/>
-				<label for="pending">Pending (<span data-bind="text: status.pending"></span>)</label>
-				<input type="checkbox" id="Approved" data-bind="click: modifyFilter, checked: Approved" checked/>
-				<label for="approved">Approved (<span data-bind="text: status.approved"></span>)</label>
-				<input type="checkbox" id="Denied" data-bind="click: modifyFilter, checked: Denied" checked/>
-				<label for="denied">Denied (<span data-bind="text: status.denied"></span>)</label>
-			</div>
-		</div>
-		<div class="row requests-header">
-			<div class="col-md-2">Title</div>
-			<div class="col-md-2">Created At</div>
-			<div class="col-md-2">Updated At</div>
-			<div class="col-md-1">Status</div>
-		</div>
-				<!--iterate table rows - refactored to not use tables-->
-		<div data-bind="foreach: requests">
-			<div class="row request-row">
-				<div data-bind="template: {name: 'request-table-row', data: $data}, visible: $parent[$data.status()]"></div>
-			</div>
-		</div>
-	</div>
-	<div data-bind="template: {name: 'modal-confirmation', data: activeItem}"></div>
-	<!--Pull in all our scripts - jQuery | Bootstrap | Knockout | Our ViewModel | Tether-->
-	<script src="https://code.jquery.com/jquery-2.2.2.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js" type="text/javascript"></script>
-	<script src="./assets/js/ko.mapping.js" type="text/javascript"></script>
-	<script src="./assets/js/knockout-example.js" type="text/javascript"></script>
-	<script src="./assets/js/moment.js"></script>
+  <div class="container-fluid koapp">
+    <div class="row koapp-header">
+      <div class="col-md-12">
+        knockout.js example
+      </div>
+    </div>
+    <div class="row koapp-explain">
+      <div class="col-md-12">
+        <h1>knockout.js example</h1>
+        <p>We're using <a href="http://v4-alpha.getbootstrap.com">Bootstrap 4's alpha</a>, <a href="http://www.knockoutjs.com">knockout.js</a> MVVM, <a href="https://jquery.com/">jQuery</a> and <a href="http://momentjs.com/">moment.js</a>.</p>
+        <p>I'm using data from a code test we usually give to juniors for react testing. It should work well here.</p>
+        <h3>Requirements</h3>
+        <ul>
+          <li>Filter should include the number of results that match that filter in parentheses after the name of the object (substitute # with count)</li>
+          <li>Selecting a checkbox next to a filter hides all results whose status does not match the filter selected. A user may select multiple statuses and all results that match any one of the filters will be shown</li>
+          <li>Having no filter checkboxes selected shows all results</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row koapp-actual" id="app">
+      <div class="col-md-12">
+        <input type="checkbox" id="Pending" data-bind="click: modifyFilter, checked: Pending"/>
+        <label for="pending">Pending (<span data-bind="text: status.pending"></span>)</label>
+        <input type="checkbox" id="Approved" data-bind="click: modifyFilter, checked: Approved" checked/>
+        <label for="approved">Approved (<span data-bind="text: status.approved"></span>)</label>
+        <input type="checkbox" id="Denied" data-bind="click: modifyFilter, checked: Denied" checked/>
+        <label for="denied">Denied (<span data-bind="text: status.denied"></span>)</label>
+      </div>
+    </div>
+    <div class="row requests-header">
+      <div class="col-md-2">Title</div>
+      <div class="col-md-2">Created At</div>
+      <div class="col-md-2">Updated At</div>
+      <div class="col-md-1">Status</div>
+    </div>
+        <!--iterate table rows - refactored to not use tables-->
+    <div data-bind="foreach: requests">
+      <div class="row request-row">
+        <div data-bind="template: {name: 'request-table-row', data: $data}, visible: $parent[$data.status()]"></div>
+      </div>
+    </div>
+  </div>
+  <div data-bind="template: {name: 'modal-confirmation', data: activeItem}"></div>
+  <!--Pull in all our scripts - jQuery | Bootstrap | Knockout | Our ViewModel | Tether-->
+  <script src="https://code.jquery.com/jquery-2.2.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js" type="text/javascript"></script>
+  <script src="./assets/js/ko.mapping.js" type="text/javascript"></script>
+  <script src="./assets/js/knockout-example.js" type="text/javascript"></script>
+  <script src="./assets/js/moment.js"></script>
 
-	<script type="text/html" id="request-table-row">
-		<div data-bind="text: title" class="col-md-2"></div>
-		<div data-bind="moment: created_at" class="col-md-2"></div>
-		<div data-bind="moment: updated_at" class="col-md-2"></div>
-		<div data-bind="text: status" class="col-md-1"></div>
-		<div class="col-md-5">
-			<div class="btn-group" id="text: $index">
-				<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Status</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" data-bind="click: $root.changeStatus">Approved</a>
-					<a class="dropdown-item" data-bind="click: $root.changeStatus">Pending</a>
-					<a class="dropdown-item" data-bind="click: $root.changeStatus">Denied</a>
-				</div>
-			</div>
-			<button class="btn btn-danger" data-bind="click: $root.setActive">Delete Request</button>
-		</div>
-	</script>
+  <script type="text/html" id="request-table-row">
+    <div data-bind="text: title" class="col-md-2"></div>
+    <div data-bind="moment: created_at" class="col-md-2"></div>
+    <div data-bind="moment: updated_at" class="col-md-2"></div>
+    <div data-bind="text: status" class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="btn-group" id="text: $index">
+        <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Status</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" data-bind="click: $root.changeStatus">Approved</a>
+          <a class="dropdown-item" data-bind="click: $root.changeStatus">Pending</a>
+          <a class="dropdown-item" data-bind="click: $root.changeStatus">Denied</a>
+        </div>
+      </div>
+      <button class="btn btn-danger" data-bind="click: $root.setActive">Delete Request</button>
+    </div>
+  </script>
 
-	<script type="text/html" id="modal-confirmation">
-		<div class="modal fade" id="deleteModal">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-body">
-						<p>Are you sure you want to delete this record?</p>
-						<ul>
-							<li data-bind="text: $data.title"></li>
-							<li data-bind="text: $data.status"></li>
-							<li data-bind="text: $data.created_at"></li>
-							<li data-bind="text: $data.updated_at"></li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-danger" data-bind="click: $root.deleteConfirm">Confirm</button>
-						<button class="btn btn-primary" data-dismiss="modal">Cancel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</script>
+  <script type="text/html" id="modal-confirmation">
+    <div class="modal fade" id="deleteModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>Are you sure you want to delete this record?</p>
+            <ul>
+              <li data-bind="text: $data.title"></li>
+              <li data-bind="text: $data.status"></li>
+              <li data-bind="text: $data.created_at"></li>
+              <li data-bind="text: $data.updated_at"></li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" data-bind="click: $root.deleteConfirm">Confirm</button>
+            <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
 </body>
 </html>
